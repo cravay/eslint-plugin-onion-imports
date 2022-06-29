@@ -1,0 +1,8 @@
+# TypeScript files
+**/*.ts
+
+# Configuration files
+.editorconfig
+.gitignore
+jest.config.ts
+tsconfig.json

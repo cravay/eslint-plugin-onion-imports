@@ -1,0 +1,52 @@
+{
+  "name": "eslint-plugin-onion-imports",
+  "version": "1.0.0",
+  "description": "Enforce import rules for Onion Architecture",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "jest",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint .",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/cravay/eslint-plugin-onion-imports.git"
+  },
+  "keywords": [
+    "eslint",
+    "eslintplugin"
+  ],
+  "author": "Michael Schertenleib <michael@michaelschertenleib.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cravay/eslint-plugin-onion-imports/issues"
+  },
+  "homepage": "https://github.com/cravay/eslint-plugin-onion-imports#readme",
+  "devDependencies": {
+    "@types/eslint": "^8.4.3",
+    "@types/estree": "^0.0.52",
+    "@types/jest": "^28.1.3",
+    "@types/json-schema": "^7.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.30.0",
+    "@typescript-eslint/parser": "^5.30.0",
+    "eslint": "^8.18.0",
+    "eslint-plugin-eslint-plugin": "^4.3.0",
+    "jest": "^28.1.2",
+    "json-schema": "^0.4.0",
+    "prettier": "^2.7.1",
+    "ts-jest": "^28.0.5",
+    "ts-node": "^10.8.1",
+    "typescript": "^4.7.4"
+  },
+  "peerDependencies": {
+    "eslint": ">=6"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "dependencies": {
+    "ignore": "^5.2.0"
+  }
+}
