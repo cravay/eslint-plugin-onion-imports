@@ -117,7 +117,7 @@ new RuleTester().run("onion-imports", onionImportsRule, {
     invalidTestCase(
       "export from same layer",
       "src/data-access/foo.js",
-      'import { bar } from "../ui/bar.js";'
+      'export { bar } from "../ui/bar.js";'
     ),
   ],
 });
