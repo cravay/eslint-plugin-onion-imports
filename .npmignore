@@ -2,7 +2,10 @@
 **/*.ts
 
 # Configuration files
+.github
 .editorconfig
+.eslintrc.json
 .gitignore
+.prettierignore
 jest.config.ts
 tsconfig.json
