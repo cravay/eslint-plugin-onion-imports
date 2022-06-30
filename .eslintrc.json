@@ -7,5 +7,5 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:eslint-plugin/recommended"
   ],
-  "ignorePatterns": "lib/rules/**/*.js"
+  "ignorePatterns": "lib/**/*.js"
 }

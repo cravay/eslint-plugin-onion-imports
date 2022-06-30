@@ -130,7 +130,10 @@ const onionImportRule: Rule.RuleModule = {
      * Check an import or export node and report violations to the onion import rules.
      */
     const checkNode = (
-      node: ESTree.ImportDeclaration | ESTree.ExportNamedDeclaration
+      node:
+        | ESTree.ImportDeclaration
+        | ESTree.ExportNamedDeclaration
+        | ESTree.ExportAllDeclaration
     ): void => {
       // Try to get the path of the file being imported
       // Currently handling all paths as relative paths...
@@ -162,14 +165,9 @@ const onionImportRule: Rule.RuleModule = {
     };
 
     return {
-      ImportDeclaration(node) {
-        checkNode(node);
-      },
-      ExportNamedDeclaration(node) {
-        if (node.source) {
-          checkNode(node);
-        }
-      },
+      ImportDeclaration: checkNode,
+      ExportNamedDeclaration: checkNode,
+      ExportAllDeclaration: checkNode,
     };
   },
 };

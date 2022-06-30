@@ -20,7 +20,7 @@ const options: OnionImportsRuleOptions[] = [
   {
     layers: [
       [
-        { name: "UI", patterns: ["src/ui/"] },
+        { name: "UI", patterns: ["src/ui/*", "!src/ui/ignore"] },
         { name: "Data Access", patterns: ["src/data-access/"] },
         { name: "WCF", patterns: ["src/wcf/"] },
         { name: "IO", patterns: ["src/io/"] },
@@ -64,37 +64,34 @@ new RuleTester().run("onion-imports", onionImportsRule, {
     testCase(
       "import from outside of layers",
       "src/main.js",
-      `
-              import foo from "./ui/foo.js";
-              import bar from "./data-access/bar.js";
-              import baz from "./business-logic/bar.js";
-              import qux from "./object-model/qux.js";
-            `
+      `import foo from "./ui/foo.js";
+       import bar from "./data-access/bar.js";
+       import baz from "./business-logic/bar.js";
+       import qux from "./object-model/qux.js";`
     ),
     testCase(
       "import from same layer",
       "src/ui/foo.js",
-      `
-              import bar from "./bar.js";
-              import baz from "../ui/baz.js";
-            `
+      `import bar from "./bar.js";
+       import baz from "../ui/baz.js";
+       import qux from "../../src/ui/qux.js";`
     ),
     testCase(
       "import from inner layer",
       "src/io/foo.js",
-      `
-              import baz from "../business-logic/bar.js";
-              import qux from "../object-model/qux.js";
-            `
+      `import baz from "../business-logic/bar.js";
+       import qux from "../object-model/qux.js";`
     ),
     testCase(
       "export from inner layer",
       "src/wcf/foo.js",
-      `
-              export { bar } from "./data-access/bar.js";
-              export { baz } from "./business-logic/bar.js";
-              export { qux } from "./object-model/qux.js";
-            `
+      `export { bar } from "../business-logic/bar.js";
+       export * from "../object-model/baz.js";`
+    ),
+    testCase(
+      "import from ignored folder",
+      "src/business-logic/foo.js",
+      'import bar from "../ui/ignore/bar.js";'
     ),
   ],
   invalid: [
@@ -112,6 +109,11 @@ new RuleTester().run("onion-imports", onionImportsRule, {
       "export from outer layer",
       "src/business-logic/foo.js",
       'export { bar } from "../ui/bar.js";'
+    ),
+    invalidTestCase(
+      "star export from outer layer",
+      "src/object-model/foo.js",
+      'export * from "../wcf/bar.js";'
     ),
     invalidTestCase(
       "export from same layer",
