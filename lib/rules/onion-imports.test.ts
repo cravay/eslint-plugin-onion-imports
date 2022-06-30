@@ -65,36 +65,35 @@ new RuleTester().run("onion-imports", onionImportsRule, {
       "import from outside of layers",
       "src/main.js",
       `
-              import foo from "./ui/foo";
-              import bar from "./data-access/bar";
-              import baz from "./business-logic/bar";
-              import qux from "./object-model/qux";
+              import foo from "./ui/foo.js";
+              import bar from "./data-access/bar.js";
+              import baz from "./business-logic/bar.js";
+              import qux from "./object-model/qux.js";
             `
     ),
     testCase(
       "import from same layer",
       "src/ui/foo.js",
       `
-              import bar from "./bar";
-              import baz from "../ui/baz";
+              import bar from "./bar.js";
+              import baz from "../ui/baz.js";
             `
     ),
     testCase(
       "import from inner layer",
       "src/io/foo.js",
       `
-              import bar from "./data-access/bar";
-              import baz from "./business-logic/bar";
-              import qux from "./object-model/qux";
+              import baz from "../business-logic/bar.js";
+              import qux from "../object-model/qux.js";
             `
     ),
     testCase(
       "export from inner layer",
-      "src/main.js",
+      "src/wcf/foo.js",
       `
-              export { bar } from "./data-access/bar";
-              export { baz } from "./business-logic/bar";
-              export { qux } from "./object-model/qux";
+              export { bar } from "./data-access/bar.js";
+              export { baz } from "./business-logic/bar.js";
+              export { qux } from "./object-model/qux.js";
             `
     ),
   ],
