@@ -5,6 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "jest",
+    "mutation-testing": "stryker run",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "eslint .",
@@ -28,6 +29,9 @@
     "ignore": "^5.2.0"
   },
   "devDependencies": {
+    "@stryker-mutator/core": "^6.1.2",
+    "@stryker-mutator/jest-runner": "^6.1.2",
+    "@stryker-mutator/typescript-checker": "^6.1.2",
     "@types/eslint": "^8.4.3",
     "@types/estree": "^0.0.52",
     "@types/jest": "^28.1.3",

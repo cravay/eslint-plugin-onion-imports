@@ -1,2 +1,8 @@
 node_modules
 **/*.js
+
+# stryker temp files
+.stryker-tmp
+
+# styker reports
+reports

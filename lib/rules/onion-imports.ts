@@ -36,7 +36,7 @@ const layerSchema: JSONSchema4 = {
  * Return whether a file belongs to a layer or not
  */
 function pathBelongsToLayer(path: string, layer: Layer): boolean {
-  return ignore({ ignoreCase: true }).add(layer.patterns).ignores(path);
+  return ignore().add(layer.patterns).ignores(path);
 }
 
 /**

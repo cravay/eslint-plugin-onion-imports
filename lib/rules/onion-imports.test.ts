@@ -106,6 +106,11 @@ new RuleTester().run("onion-imports", onionImportsRule, {
       'import bar from "../ui/bar.js";'
     ),
     invalidTestCase(
+      "import with changed case",
+      "src/business-logic/foo.js",
+      'import bar from "../UI/BAR.JS";'
+    ),
+    invalidTestCase(
       "export from outer layer",
       "src/business-logic/foo.js",
       'export { bar } from "../ui/bar.js";'
