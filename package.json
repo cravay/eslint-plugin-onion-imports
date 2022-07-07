@@ -24,6 +24,9 @@
     "url": "https://github.com/cravay/eslint-plugin-onion-imports/issues"
   },
   "homepage": "https://github.com/cravay/eslint-plugin-onion-imports#readme",
+  "dependencies": {
+    "ignore": "^5.2.0"
+  },
   "devDependencies": {
     "@types/eslint": "^8.4.3",
     "@types/estree": "^0.0.52",
@@ -45,8 +48,5 @@
   },
   "engines": {
     "node": ">=16"
-  },
-  "dependencies": {
-    "ignore": "^5.2.0"
   }
 }
